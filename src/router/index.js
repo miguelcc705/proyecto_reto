@@ -5,7 +5,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
-
 import Index_calendario from '../components/Index_calendario.vue'
 
 const routes = [

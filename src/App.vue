@@ -5,7 +5,7 @@ import Index_calendario from './components/Index_calendario.vue'
 
 
 <template>
-  <Index_calendario/>
+  <Index_calendario />
 </template>
 
 
