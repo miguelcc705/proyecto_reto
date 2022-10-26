@@ -43,27 +43,41 @@ ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 -- -----------------------------------------------------
 -- Table `cirujanos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Quiroefficient`.`cirujanos` (
+CREATE TABLE IF NOT EXISTS `cirujanos` (
   `idcirujanos` INT NOT NULL AUTO_INCREMENT,
   `nombres` VARCHAR(45) NOT NULL,
   `apellidos` VARCHAR(45) NOT NULL,
   `documento` VARCHAR(45) NOT NULL,
   `especialidad` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idcirujanos`))
-ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
+  `idcirugias` INT NOT NULL,
+  PRIMARY KEY (`idcirujanos`),
+  INDEX `fk_cirujanos_cirugias1_idx` (`idcirugias` ASC) VISIBLE,
+  CONSTRAINT `fk_cirujanos_cirugias1`
+    FOREIGN KEY (`idcirugias`)
+    REFERENCES `cirugias` (`idcirugias`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `equipos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Quiroefficient`.`equipos` (
-  `idequipos` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `equipos` (
+  `idequipo` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `modelo` VARCHAR(45) NOT NULL,
-  `codserial` VARCHAR(45) NOT NULL,
+  `serial` VARCHAR(45) NOT NULL,
   `cantidad` INT NOT NULL,
-  PRIMARY KEY (`idequipos`))
-ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
+  `idcirugias` INT NOT NULL,
+  PRIMARY KEY (`idequipo`),
+  INDEX `fk_equipos_cirugias1_idx` (`idcirugias` ASC) VISIBLE,
+  CONSTRAINT `fk_equipos_cirugias1`
+    FOREIGN KEY (`idcirugias`)
+    REFERENCES `cirugias` (`idcirugias`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -89,47 +103,29 @@ ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 -- -----------------------------------------------------
 -- Table `cirugias`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Quiroefficient`.`cirugias` (
-  `idCirujias` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `cirugias` (
+  `idcirugias` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `fecha` DATE NOT NULL,
   `horaInicio` TIME NOT NULL,
   `horaFinal` TIME NOT NULL,
-  `duracionEstimada` TIME NOT NULL,
-  `duracionReal` TIME NOT NULL,
   `detalles` VARCHAR(500) NOT NULL,
-  `cancelacion` VARCHAR(45) NOT NULL,
-  `motivoCancelacion` VARCHAR(45) NOT NULL,
   `idpaciente` INT NOT NULL,
-  `idcirujano` INT NOT NULL,
-  `idequipo` INT NOT NULL,
-  `idquirofano` INT NOT NULL,
-  PRIMARY KEY (`idCirujias`),
-  INDEX `fk_cirujias_pacientes_idx` (`idpacientes` ASC) VISIBLE,
-  INDEX `fk_cirujias_cirujanos1_idx` (`idcirujanos` ASC) VISIBLE,
-  INDEX `fk_cirujias_equipos1_idx` (`idequipos` ASC) VISIBLE,
-  INDEX `fk_cirujias_quirofanos1_idx` (`idquirofanos` ASC) VISIBLE,
-  CONSTRAINT `fk_cirujias_pacientes`
-    FOREIGN KEY (`idpacientes`)
-    REFERENCES `pacientes` (`idpacientes`)
+  `idquirofanos` INT NOT NULL,
+  PRIMARY KEY (`idcirugias`),
+  INDEX `fk_cirugias_pacientes_idx` (`idpaciente` ASC) VISIBLE,
+  INDEX `fk_cirugias_quirofanos1_idx` (`idquirofanos` ASC) VISIBLE,
+  CONSTRAINT `fk_cirugias_pacientes`
+    FOREIGN KEY (`idpaciente`)
+    REFERENCES `pacientes` (`idpaciente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_cirujias_cirujanos1`
-    FOREIGN KEY (`idcirujanos`)
-    REFERENCES `cirujanos` (`idcirujanos`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_cirujias_equipos1`
-    FOREIGN KEY (`idequipos`)
-    REFERENCES `equipos` (`idequipos`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_cirujias_quirofanos1`
+  CONSTRAINT `fk_cirugias_quirofanos1`
     FOREIGN KEY (`idquirofanos`)
     REFERENCES `quirofanos` (`idquirofanos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
