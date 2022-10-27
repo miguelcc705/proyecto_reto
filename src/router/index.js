@@ -1,13 +1,15 @@
-
-
-
-
 import { createRouter, createWebHistory } from 'vue-router'
+import InicioSesion from '../components/InicioSesion.vue'
 import HomeView from '../views/HomeView.vue'
 
 import Index_calendario from '../components/Index_calendario.vue'
 
 const routes = [
+  {
+    path: '/inicioSesion',
+    name: 'inicioSesion',
+    component: InicioSesion
+  },
   {
     path: '/',
     name: 'home',

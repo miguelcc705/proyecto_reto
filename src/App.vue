@@ -1,11 +1,19 @@
 <script setup>
-import Index_calendario from './components/Index_calendario.vue'
-
+// import Index_calendario from './components/Index_calendario.vue'
+import InicioSesion from './components/InicioSesion.vue'
 </script>
 
 
 <template>
-  <Index_calendario />
+  <!-- <Index_calendario /> -->
+  <InicioSesion/>
+  <footer class="bg-secondary text-center text-white fixed-bottom" >
+    <div class="text-center p-3">
+      QuiroEfficient App
+      <br>
+      Dashboard para gestión de quirófanos
+    </div>
+</footer>
 </template>
 
 
