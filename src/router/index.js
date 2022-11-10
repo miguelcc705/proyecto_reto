@@ -1,7 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import InicioSesion from '../components/InicioSesion.vue'
 import HomeView from '../views/HomeView.vue'
+
+import ConsultarCirujano from '../components/ConsultarCirujano.vue'
 import CrearCirujano from '../components/CrearCirujano.vue'
+import EditarCirujano from '../components/EditarCirujano.vue'
+
 import CrearQuirofano from '../components/CrearQuirofano.vue'
 import Index_calendario from '../components/Index_calendario.vue'
 
@@ -17,9 +21,19 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/consultarcirujano',
+    name: 'ConsultarCirujano',
+    component: ConsultarCirujano
+  },
+  {
     path: '/crearcirujano',
     name: 'CrearCirujano',
     component: CrearCirujano
+  },
+  {
+    path: '/editarcirujano/:id',
+    name: 'EditarCirujano',
+    component: EditarCirujano
   },
   {
     path: '/crearquirofano',

@@ -1,7 +1,4 @@
 <template>
-<head>
-    <h1> Prueba 2</h1>
-    </head>
     <body>
 
     <div class="container">
@@ -10,11 +7,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="Tipo">Tipo</label>
-                    <input type="text" class="form-control" v-model="quirofano.tipo" id="tipo" required>
+                    <input type="text" class="form-control" id="tipo" required> <!-- v-model="quirofano.tipo" -->
                 </div>
                 <div class="form-group col-md-6">
                     <label for="Nomenclatura">Nomenclatura</label>
-                    <input type="text" class="form-control" v-model="quirofano.nomenclatura" id="nomenclatura" required>
+                    <input type="text" class="form-control" id="nomenclatura" required><!--  v-model="quirofano.nomenclatura" -->
                 </div>   
             </div>       
             <button type="submit" class="btn btn-primary">Ingresar</button>
@@ -23,19 +20,35 @@
     </body>
 </template>
 
-<!--script>
-
+<script>
+/*
 export default {
-    /*data() {
+    data() {
         return {
-            cirujano: {} 
+            quirofano: {} 
         }
     },
     
     methods: {
         CrearQuirofano() {               
-                
+                var datosEnviar = {
+                nombre: this.activo.nombre,
+                marca: this.activo.marca,
+                modelo: this.activo.modelo,
+                serial: this.activo.serial,
+                area: this.activo.area,
+                nom_resp: this.activo.nom_resp,
+                doc_resp: this.activo.doc_resp
+            }
+            //http://localhost/practica2/?insertar=1
+            fetch('http://localhost/practica2/practica_2/?insertar=0', {
+                method: "POST",
+                body: JSON.stringify(datosEnviar)
+            })
+                .then(respuesta => respuesta.json())
+            window.location.href = 'consultaractivo'
         }
-    }*/
+    }
 }
-</script-->
+*/
+</script>
