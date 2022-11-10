@@ -37,18 +37,18 @@
                       class="img-fluid" alt="Sample image">
                 </div>
                 <hr class="my-2">
-                <form name="form" id="form" ><!--v-on:submit.prevent="login" -->
+                <form name="form" id="form" v-on:submit.prevent="login">
                     <!-- Email input -->
                     <div class="container-fluid">
                       <div class="form-outline mb-4">
                         <br>
-                        <input name="email" type="email" id="form2Example1" class="form-control"/> <!--v-model="usuario.email" -->
+                        <input name="email" type="email" id="form2Example1" class="form-control" v-model="usuario.email"/> 
                         <label class="form-label" for="form2Example1">Correo institucional</label>
                       </div>
                     
                       <!-- Password input -->
                       <div class="form-outline mb-4">
-                        <input name="passwd" type="password" id="form2Example2" class="form-control" /><!-- v-model="usuario.passwd"  -->
+                        <input name="passwd" type="password" id="form2Example2" class="form-control" v-model="usuario.passwd"/> 
                         <label class="form-label" for="form2Example2">Contraseña</label>
                       </div>
                     </div>
@@ -67,7 +67,7 @@
 </template>
   
   
-  <!-- <script>
+<script>
   
   import axios from "axios";
   
@@ -98,4 +98,4 @@
         }
     }
   }
-  </script> -->
+</script>

@@ -23,6 +23,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+INSERT INTO `users` (`id`, `token`, `passwd`, `name`,`email`) VALUES
+(1, 'admin123', 'admin123', 'Administrador de la Plataforma','admin@mail.com.co'),
+(2, 'usuario1', 'usuario1', 'Usuario 1','usuario1@gmail.com'),
+(3, 'usuario2', 'usuario2', 'Usuario 2','usuario2@gmail.com');
+
 -- -----------------------------------------------------
 -- Table `pacientes`
 -- -----------------------------------------------------
@@ -111,6 +116,7 @@ alter table `cirugias`
     REFERENCES `quirofanos` (`idquirofanos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

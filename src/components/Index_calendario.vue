@@ -168,16 +168,16 @@ const options = reactive({
 
 export default {
     data() {
-        return {
-                cirugia: {}
-            }
-        // if (localStorage.getItem('user_token')) {
-        //     return {
+        // return {
         //         cirugia: {}
         //     }
-        // } else {
-        //     window.location.href = 'inicioSesion'
-        // }
+        if (localStorage.getItem('user_token')) {
+            return {
+                cirugia: {}
+            }
+        } else {
+            window.location.href = 'inicioSesion'
+        }
     },
     created: function () {
 
