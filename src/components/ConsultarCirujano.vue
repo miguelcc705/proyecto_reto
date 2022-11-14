@@ -21,16 +21,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="cirujano in cirujanos" :key="cirujano.id">
-                            <td>{{activo.idcirujanos}}</td>
-                            <td>{{activo.nombres}}</td>
-                            <td>{{activo.apellidos}}</td>
-                            <td>{{activo.documento}}</td>
-                            <td>{{activo.especialidad}}</td>
+                        <tr v-for="cirujano in cirujanos" :key="cirujano.idcirujanos">
+                            <td>{{cirujano.idcirujanos}}</td>
+                            <td>{{cirujano.nombres}}</td>
+                            <td>{{cirujano.apellidos}}</td>
+                            <td>{{cirujano.documento}}</td>
+                            <td>{{cirujano.especialidad}}</td>
                             <td> 
                                 <div class="button-group" role="group" aria-label="">
                                 <router-link :to="{path: '/editarcirujano/'+ cirujano.idcirujanos} " class="btn" ><i class="fa fa-pencil"></i></router-link>
-                                <!--button class="btn" @click="btnBorrar(cirujano.idcirujanos)"><i class="fa fa-trash"></i> </button-->
+                                <button class="btn" @click="btnBorrar(cirujano.idcirujanos)"><i class="fa fa-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -43,7 +43,7 @@
 
 <script>
 
-//import Swal from'sweetalert2'
+import Swal from'sweetalert2'
 
 export default {
     data(){
@@ -52,6 +52,7 @@ export default {
         }
         
     },
+
    /*created:function(){
         if(localStorage.getItem('user_token')){
             this.consultarCirujanos();
@@ -59,6 +60,10 @@ export default {
             window.location.href='inicioSesion'
         }
     },*/
+    created:function(){
+        this.consultarCirujanos();
+    },
+
     methods:{
         consultarCirujanos(){
             fetch('http://localhost/proyecto_reto/?cirujanos=1') 
@@ -67,23 +72,24 @@ export default {
                 console.log(datosRespuesta)
                 this.cirujanos=[]
                 if(typeof datosRespuesta[0].success=='undefined'){
-                    this.cirujuanos = datosRespuesta;
+                    this.cirujanos = datosRespuesta;
                 }
             })
             .catch(console.log)
-        }
-        /*
-        borrarActivo(id){
-            fetch('http://http://localhost/proyecto_reto/?borrar_cir='+id)
+        },
+        
+        borrarCirujano(idcirujanos){
+            fetch('http://http://localhost/proyecto_reto/?borrar_cir='+idcirujanos)
             .then(respuesta=>respuesta.json())
             .then((datosRespuesta)=>{
                 console.log(datosRespuesta)
                 window.location.href='consultarcirujano'
             })
         },
-        btnBorrar: function(id){
+
+        btnBorrar: function(idcirujanos){
             Swal.fire({
-                title:'¿Está seguro de borrar el registro: #'+id+"?",
+                title:'¿Está seguro de borrar el registro: #'+idcirujanos+"?",
                 type:'warning',
                 showCancelButton: true,
                 confirmButtonColor:'#d33',
@@ -91,11 +97,11 @@ export default {
                 confirmButtonText: 'Borrar'
             }).then((result) => {
                 if (result.value){
-                    this.borrarActivo(id);
+                    this.borrarCirujano(idcirujanos);
                     Swal.fire('El registro ha sido borrado')
                 }
             })
-        }*/
+        }
     }
 }
 </script>

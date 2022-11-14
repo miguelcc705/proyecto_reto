@@ -138,7 +138,7 @@ if(isset($_GET["actualizar_cir"])){
 // Consulta UN registro de cirujano de la tabla cirujanos teniendo como criterio de búsqueda la variable 'id' que viene en el $_GET["consultar_cir"] 
    
 if (isset($_GET["consultar_cir"])){
-    $sqlCirujano_ = mysqli_query($conexionBD,"SELECT * FROM cirujanos WHERE id=".$_GET["consultar_cir"]);
+    $sqlCirujano_ = mysqli_query($conexionBD,"SELECT * FROM cirujanos WHERE idcirujanos=".$_GET["consultar_cir"]);
     if(mysqli_num_rows($sqlCirujano_) > 0){
         $Cirujano_ = mysqli_fetch_all($sqlCirujano_,MYSQLI_ASSOC);
         echo json_encode($Cirujano_);

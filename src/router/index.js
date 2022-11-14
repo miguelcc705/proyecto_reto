@@ -31,7 +31,7 @@ const routes = [
     component: CrearCirujano
   },
   {
-    path: '/editarcirujano/:id',
+    path: '/editarcirujano/:idcirujanos',
     name: 'EditarCirujano',
     component: EditarCirujano
   },
