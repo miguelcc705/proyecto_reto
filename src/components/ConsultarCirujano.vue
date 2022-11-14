@@ -13,7 +13,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
+                            <th>Nombres</th>
                             <th>Apellido</th>
                             <th>Documento</th>
                             <th>Especialidad</th>
@@ -61,7 +61,7 @@ export default {
     },*/
     methods:{
         consultarCirujanos(){
-            fetch('http://http://localhost/proyecto_reto/?cirujanos=0') 
+            fetch('http://localhost/proyecto_reto/?cirujanos=1') 
             .then(respuesta=>respuesta.json())
             .then((datosRespuesta)=>{
                 console.log(datosRespuesta)
@@ -71,7 +71,7 @@ export default {
                 }
             })
             .catch(console.log)
-        },
+        }
         /*
         borrarActivo(id){
             fetch('http://http://localhost/proyecto_reto/?borrar_cir='+id)

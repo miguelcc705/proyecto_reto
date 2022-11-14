@@ -103,7 +103,7 @@ if(isset($_GET["insertar_cir"])){
 
 // Leer Cirujanos
 if(isset($_GET["cirujanos"])){
-    $sqlCirujano_  = mysqli_query($conexionBD,"SELECT * FROM cirujanos ");
+    $sqlCirujano_  = mysqli_query($conexionBD,"SELECT * FROM cirujanos");
     if(mysqli_num_rows($sqlCirujano_ ) > 0){
         $Cirujano_  = mysqli_fetch_all($sqlCirujano_ ,MYSQLI_ASSOC);
         echo json_encode($Cirujano_ );
@@ -206,6 +206,7 @@ if (isset($_GET["consultar_eq"])){
         exit();
     } else{  echo json_encode(["success"=>0]); }
 }
+
 
 /////////// SECCIÓN  Indicadores.
 //Insertar Indicador

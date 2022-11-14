@@ -40,14 +40,14 @@ export default {
                 nombres: this.cirujano.nombres,
                 apellidos: this.cirujano.apellidos,
                 documento: this.cirujano.documento,
-                especialidad: this.cirujano.especialidad,
+                especialidad: this.cirujano.especialidad
             }
             
-            fetch('http://http://localhost/proyecto_reto/?insertar_cir=' + 1, {
+            fetch('http://localhost/proyecto_reto/?insertar_cir=' + 1, {
                 method: "POST",
                 body: JSON.stringify(datosEnviar)
             })
-                .then(respuesta => respuesta.json())
+            .then(respuesta => respuesta.json())
             window.location.href = 'consultarcirujano'
    
         }
