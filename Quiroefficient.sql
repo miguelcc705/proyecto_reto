@@ -29,6 +29,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `quirofanos` (
   `idquirofanos` INT NOT NULL AUTO_INCREMENT,
+  `sala` VARCHAR(45) NOT NULL,
   `tipo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idquirofanos`))
 ENGINE = InnoDB;
@@ -42,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `pacientes` (
   `nombres` VARCHAR(45) NOT NULL,
   `apellidos` VARCHAR(45) NOT NULL,
   `documento` VARCHAR(45) NOT NULL,
+  `eps` VARCHAR(45) NOT NULL,
   `edad` INT(3) NOT NULL,
   `sexo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idpacientes`))
@@ -70,8 +72,13 @@ CREATE TABLE IF NOT EXISTS `cirugias` (
   `fecha` DATE NOT NULL,
   `horaInicio` TIME NOT NULL,
   `horaFinal` TIME NOT NULL,
+  `horaInicioReal` TIME NOT NULL,
+  `horaFinalReal` TIME NOT NULL,
+  `duracionEstimada` TIME NOT NULL,
+  `duracionReal` TIME NOT NULL,
   `detalles` VARCHAR(500) NOT NULL,
   `cancelacion` BINARY NOT NULL,
+  `motivoCancelacion` VARCHAR(500) NOT NULL,
   `idquirofanos` INT NOT NULL,
   `idpacientes` INT NOT NULL,
   `idcirujanos` INT NOT NULL,
@@ -143,9 +150,20 @@ INSERT INTO `users` (`id`, `token`, `passwd`, `name`,`email`) VALUES
 (3, 'usuario2', 'usuario2', 'Usuario 2','usuario2@gmail.com');
 
 INSERT INTO `cirujanos` (`idcirujanos`, `nombres`, `apellidos`, `documento`,`especialidad`) VALUES
-(1, 'cirujano1', 'cirujano1', '1111111','ginecología');
+(1, 'Cirujano1', 'C1', '1111111','Ginecología'),
+(2, 'Cirujano2', 'C2', '2222222','Cardiolgoía');
 
+INSERT INTO `equipos` (`idequipos`, `nombre`, `modelo`, `serial`,`cantidad`) VALUES
+(1, 'Tijeras', 'Metzenbaum curvas', 'T01',5),
+(2, 'Tijeras', 'Metzenbaum rectas', 'T02',7);
 
+INSERT INTO `pacientes` (`idpacientes`, `nombres`, `apellidos`, `documento`,`eps`,`edad`,`sexo`) VALUES
+(1, 'Pedro Pablo', 'Pérez Perea','1037976019','Sura',27,'Masculino'),
+(2, 'Jorge Juan', 'Jiménez Jaramillo','1234567890','Sura',75,'Masculino');
+
+INSERT INTO `quirofanos` (`idquirofanos`, `sala`, `tipo`) VALUES
+(1, 'Quirofano1', 'Electiva'),
+(2, 'Quirofano2', 'Urgencia');
 
 
 
