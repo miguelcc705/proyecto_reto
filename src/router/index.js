@@ -2,11 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 import InicioSesion from '../components/InicioSesion.vue'
 import HomeView from '../views/HomeView.vue'
 
-import ConsultarCirujano from '../components/ConsultarCirujano.vue'
+import ConsultarCirujanos from '../components/ConsultarCirujano.vue'
 import CrearCirujano from '../components/CrearCirujano.vue'
 import EditarCirujano from '../components/EditarCirujano.vue'
 
-import CrearQuirofano from '../components/CrearQuirofano.vue'
+import Consultarquirofanos from '../components/ConsultarQuirofano.vue'
+import Crearquirofano from '../components/CrearQuirofano.vue'
+import Editarquirofano from '../components/EditarQuirofano.vue'
+
 import Index_calendario from '../components/Index_calendario.vue'
 
 const routes = [
@@ -21,9 +24,9 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/consultarcirujano',
-    name: 'ConsultarCirujano',
-    component: ConsultarCirujano
+    path: '/consultarcirujanos',
+    name: 'ConsultarCirujanos',
+    component: ConsultarCirujanos
   },
   {
     path: '/crearcirujano',
@@ -37,8 +40,18 @@ const routes = [
   },
   {
     path: '/crearquirofano',
-    name: 'CrearQuirofano',
-    component: CrearQuirofano
+    name: 'Crearquirofano',
+    component: Crearquirofano
+  },
+  {
+    path: '/consultarquirofanos',
+    name: 'Consultarquirofanos',
+    component: Consultarquirofanos
+  },
+  {
+    path: '/editarquirofano/:idquirofanos',
+    name: 'Editarquirofano',
+    component: Editarquirofano
   },
   {
     path: '/index_calendario',

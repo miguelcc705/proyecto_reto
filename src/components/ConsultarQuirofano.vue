@@ -3,8 +3,8 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
-                <h2>Listado de cirujanos</h2>
-                <router-link class="btn btn-primary" :to="{name:'CrearCirujano'}"><i class="fa fa-square-plus"></i> Agregar cirujano</router-link>
+                <h2>Listado de quirofanos</h2>
+                <router-link class="btn btn-primary" :to="{name:'Crearquirofano'}"><i class="fa fa-square-plus"></i> Agregar quirofano</router-link>
                 </div>
                 
             </div>
@@ -13,24 +13,20 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Documento</th>
-                            <th>Especialidad</th>
+                            <th>Sala</th>
+                            <th>Tipo</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="cirujano in cirujanos" :key="cirujano.idcirujanos">
-                            <td>{{cirujano.idcirujanos}}</td>
-                            <td>{{cirujano.nombres}}</td>
-                            <td>{{cirujano.apellidos}}</td>
-                            <td>{{cirujano.documento}}</td>
-                            <td>{{cirujano.especialidad}}</td>
+                        <tr v-for="quirofano in quirofanos" :key="quirofano.idquirofanos">
+                            <td>{{quirofano.idquirofanos}}</td>
+                            <td>{{quirofano.sala}}</td>
+                            <td>{{quirofano.tipo}}</td>
                             <td> 
                                 <div class="button-group" role="group" aria-label="">
-                                <router-link :to="{path: '/editarcirujano/'+ cirujano.idcirujanos} " class="btn" ><i class="fa fa-pencil"></i></router-link>
-                                <button class="btn" @click="btnBorrar(cirujano.idcirujanos)"><i class="fa fa-trash"></i></button>
+                                <router-link :to="{path: '/editarquirofano/'+ quirofano.idquirofanos} " class="btn" ><i class="fa fa-pencil"></i></router-link>
+                                <!--button class="btn" @click="btnBorrar(quirofano.idquirofanos)"><i class="fa fa-trash"></i></button-->
                                 </div>
                             </td>
                         </tr>
@@ -43,12 +39,12 @@
 
 <script>
 
-import Swal from'sweetalert2'
+//import Swal from'sweetalert2'
 
 export default {
     data(){
         return{
-            cirujanos:[] 
+            quirofanos:[] 
         }
         
     },
@@ -61,35 +57,35 @@ export default {
         }
     },*/
     created:function(){
-        this.ConsultarCirujanos();
+        this.Consultarquirofanos();
     },
 
     methods:{
-        ConsultarCirujanos(){
-            fetch('http://localhost/proyecto_reto/?cirujanos=1') 
+        Consultarquirofanos(){
+            fetch('http://localhost/proyecto_reto/?quirofanos=1') 
             .then(respuesta=>respuesta.json())
             .then((datosRespuesta)=>{
                 console.log(datosRespuesta)
-                this.cirujanos=[]
+                this.quirofanos=[]
                 if(typeof datosRespuesta[0].success=='undefined'){
-                    this.cirujanos = datosRespuesta;
+                    this.quirofanos = datosRespuesta;
                 }
             })
             .catch(console.log)
         },
-        
-        borrarCirujano(idcirujanos){
-            fetch('http://http://localhost/proyecto_reto/?borrar_cir='+idcirujanos)
+        /*
+        borrarQuirofano(idquirofanos){
+            fetch('http://http://localhost/proyecto_reto/?borrar_cir='+idquirofanos)
             .then(respuesta=>respuesta.json())
             .then((datosRespuesta)=>{
                 console.log(datosRespuesta)
-                window.location.href='ConsultarCirujanos'
+                window.location.href='consultarquirofanos'
             })
         },
 
-        btnBorrar: function(idcirujanos){
+        btnBorrar: function(idquirofanos){
             Swal.fire({
-                title:'¿Está seguro de borrar el registro: #'+idcirujanos+"?",
+                title:'¿Está seguro de borrar el registro: #'+idquirofanos+"?",
                 type:'warning',
                 showCancelButton: true,
                 confirmButtonColor:'#d33',
@@ -97,11 +93,11 @@ export default {
                 confirmButtonText: 'Borrar'
             }).then((result) => {
                 if (result.value){
-                    this.borrarCirujano(idcirujanos);
+                    this.borrarQuirofano(idquirofanos);
                     Swal.fire('El registro ha sido borrado')
                 }
             })
-        }
+        }*/
     }
 }
 </script>

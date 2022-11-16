@@ -48,7 +48,7 @@ export default {
                 body: JSON.stringify(datosEnviar)
             })
             .then(respuesta => respuesta.json())
-            window.location.href = 'consultarcirujano'
+            window.location.href = 'ConsultarCirujanos'
    
         }
     }

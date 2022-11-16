@@ -26,7 +26,7 @@
                     <button type="submit" class="btn btn-primary">Actualizar</button>
                 </div>
                 <div class="btn-group mr-2">
-                    <router-link :to="{name:'ConsultarCirujano'}" class="btn btn-dark">Cancelar</router-link>
+                    <router-link :to="{name:'ConsultarCirujanos'}" class="btn btn-dark">Cancelar</router-link>
                 </div>
             </div>
             
@@ -103,7 +103,7 @@ export default {
                 .then(respuesta => respuesta.json())
                 .then((datosRespuesta) => {
                     console.log(datosRespuesta)
-                    window.location.href = '../consultarcirujano'
+                    window.location.href = '../consultarcirujanos'
                 })
         }
     }
