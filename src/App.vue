@@ -16,11 +16,10 @@
   <router-view/>
 </template>
 
-
-<script>
+<script> 
 
 export default {
-  
+
     data() {
       if(localStorage.getItem('user_token')){
         

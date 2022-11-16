@@ -207,7 +207,30 @@ if (isset($_GET["consultar_eq"])){
     } else{  echo json_encode(["success"=>0]); }
 }
 
+/////////// SECCIÓN  Quirofanos.
+//Insertar quirofano
+if(isset($_GET["insertar_quirofanos"])){
+    $data = json_decode(file_get_contents("php://input"));
+    $sala=$data->sala;
+    $tipo=$data->tipo;
+        if(($sala!="")&&($tipo!="")){        
+            $sqlQuirofano_ = mysqli_query($conexionBD,"INSERT INTO quirofanos(sala,tipo) VALUES('$sala','$tipo') ");
+            echo json_encode(["success"=>1]);
+        }
+    exit();
+}
 
+// Leer quirofanos
+if(isset($_GET["quirofanos"])){
+    $sqlQuirofano_  = mysqli_query($conexionBD,"SELECT * FROM quirofanos");
+    if(mysqli_num_rows($sqlQuirofano_ ) > 0){
+        $Quirofano_  = mysqli_fetch_all($sqlQuirofano_ ,MYSQLI_ASSOC);
+        echo json_encode($Quirofano_ );
+    }
+    else{ echo json_encode([["success"=>0]]); }
+}
+
+// Borra un registro de la tabla quirofanos
 
 /////////// SECCIÓN  cirugias.
 //Insertar cirugia
@@ -227,14 +250,10 @@ if(isset($_GET["insertar_cirugia"])){
     $idquirofanos=$data->idquirofanos;
     $idpacientes=$data->idpacientes;
     $idcirujanos=$data->idcirujanos;
-        if(($nombre!="")&&($fecha!="")&&($horaInicio!="")&&($horaFinal!="")&&($horaInicioReal!="")&&($horaFinalReal!="")&&
-            ($duracionEstimada!="")&&($duracionReal!="")&&($detalles!="")&&($cancelacion!="")&&($motivoCancelacion!="")&&
-            ($idquirofanos!="")&&($idpacientes!="")&&($idcirujanos!="")){
                 
-            $sqlCirujano_ = mysqli_query($conexionBD,"INSERT INTO cirugias(nombre,fecha,horaInicio,horaFinal,horaInicioReal,horaFinalReal,duracionEstimada,duracionReal,detalles,cancelacion,motivoCancelacion,idquirofanos,idpacientes,idcirujanos)
-            VALUES('$nombre','$fecha','$horaInicio','$horaFinal','$horaInicioReal','$horaFinalReal','$duracionEstimada','$duracionReal','$detalles','$cancelacion','$motivoCancelacion','$idquirofanos','$idpacientes','$idcirujanos') ");
-            echo json_encode(["success"=>1]);
-        }
+    $sqlCirujano_ = mysqli_query($conexionBD,"INSERT INTO cirugias(nombre,fecha,horaInicio,horaFinal,horaInicioReal,horaFinalReal,duracionEstimada,duracionReal,detalles,cancelacion,motivoCancelacion,idquirofanos,idpacientes,idcirujanos)
+    VALUES('$nombre','$fecha','$horaInicio','$horaFinal','$horaInicioReal','$horaFinalReal','$duracionEstimada','$duracionReal','$detalles','$cancelacion','$motivoCancelacion','$idquirofanos','$idpacientes','$idcirujanos') ");
+    echo json_encode(["success"=>1]);
     exit();
 }
 
