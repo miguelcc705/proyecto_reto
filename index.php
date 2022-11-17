@@ -152,11 +152,9 @@ if (isset($_GET["consultar_cir"])){
 if(isset($_GET["insertar_eq"])){
     $data = json_decode(file_get_contents("php://input"));
     $nombre=$data->nombre;
-    $modelo=$data->modelo;
-    $codserial=$data->codserial;
     $cantidad=$data->cantidad;
-        if(($nombre!="")&&($modelo!="")&&($codserial!="")&&($cantidad!="")){        
-            $sqlEquipo_ = mysqli_query($conexionBD,"INSERT INTO equipos(nombre,modelo,codserial,cantidad) VALUES('$nombre','$modelo','$codserial','$cantidad') ");
+        if(($nombre!="")&&($cantidad!="")){        
+            $sqlEquipo_ = mysqli_query($conexionBD,"INSERT INTO equipos(nombre, cantidad) VALUES('$nombre','$cantidad') ");
             echo json_encode(["success"=>1]);
         }
     exit();
@@ -189,10 +187,8 @@ if(isset($_GET["actualizar_eq"])){
     $data = json_decode(file_get_contents("php://input"));
     $idequipos=(isset($data->idequipos))?$data->idequipos:$_GET["actualizar_eq"];
     $nombre=$data->nombre;
-    $modelo=$data->modelo;
-    $codserial=$data->codserial;
     $cantidad=$data->cantidad;
-    $sqlEquipo_ = mysqli_query($conexionBD,"UPDATE equipos SET nombre='$nombre',modelo='$modelo',codserial='$codserial',cantidad='$cantidad' WHERE idequipos='$idequipos'");
+    $sqlEquipo_ = mysqli_query($conexionBD,"UPDATE equipos SET nombre='$nombre',cantidad='$cantidad' WHERE idequipos='$idequipos'");
     echo json_encode(["success"=>1 ]);
     exit();   
 }

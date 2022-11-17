@@ -14,6 +14,10 @@ import ConsultarPaciente from '../components/ConsultarPaciente.vue'
 import CrearPaciente from '../components/CrearPaciente.vue'
 import EditarPaciente from '../components/EditarPaciente.vue'
 
+import CrearEquipo from '../components/CrearEquipo.vue'
+import ConsultarEquipo from '../components/ConsultarEquipo.vue'
+import EditarEquipo from '../components/EditarEquipo.vue'
+
 import Index_calendario from '../components/Index_calendario.vue'
 
 const routes = [
@@ -72,6 +76,26 @@ const routes = [
     name: 'EditarPaciente',
     component: EditarPaciente
   },
+
+  {
+    path: '/crearequipo',
+    name: 'CrearEquipo',
+    component: CrearEquipo
+  },
+ 
+  {
+    path: '/consultarequipo',
+    name: 'ConsultarEquipo',
+    component: ConsultarEquipo
+  },
+ 
+  {
+    path: '/editarequipo/:idequipos',
+    name: 'EditarEquipo',
+    component: EditarEquipo
+  },
+
+
   {
     path: '/index_calendario',
     name: 'Index_calendario',

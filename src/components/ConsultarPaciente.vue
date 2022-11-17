@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
-                <h2>Listado de responsables</h2>
+                <h2>Listado de pacientes</h2>
                 <router-link class="btn btn-primary" :to="{name:'CrearPaciente'}"><i class="fa fa-user-plus"></i> Agregar paciente</router-link>
                 </div>
             </div>

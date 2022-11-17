@@ -92,8 +92,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `equipos` (
   `idequipos` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
-  `modelo` VARCHAR(45) NOT NULL,
-  `serial` VARCHAR(45) NOT NULL,
   `cantidad` INT NOT NULL,
   PRIMARY KEY (`idequipos`))
 ENGINE = InnoDB;
@@ -153,9 +151,10 @@ INSERT INTO `cirujanos` (`idcirujanos`, `nombres`, `apellidos`, `documento`,`esp
 (1, 'Cirujano1', 'C1', '1111111','Ginecología'),
 (2, 'Cirujano2', 'C2', '2222222','Cardiolgoía');
 
-INSERT INTO `equipos` (`idequipos`, `nombre`, `modelo`, `serial`,`cantidad`) VALUES
-(1, 'Tijeras', 'Metzenbaum curvas', 'T01',5),
-(2, 'Tijeras', 'Metzenbaum rectas', 'T02',7);
+INSERT INTO `equipos` (`idequipos`, `nombre`,`cantidad`) VALUES
+(1, 'Tijeras',5),
+(2, 'Tijeras',7);
+
 
 INSERT INTO `pacientes` (`idpacientes`, `nombres`, `apellidos`, `documento`,`eps`,`edad`,`sexo`) VALUES
 (1, 'Pedro Pablo', 'Pérez Perea','1037976019','Sura',27,'Masculino'),
