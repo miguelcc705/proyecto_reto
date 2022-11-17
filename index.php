@@ -8,7 +8,8 @@ MODIFIED AND ADAPTED BY: Angelower Santana-Velásquez
 */
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: access");
-header("Access-Control-Allow-Methods: GET,POST");
+header('Access-Control-Allow-Methods: * ');
+//header("Access-Control-Allow-Methods: GET,POST");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
@@ -123,7 +124,7 @@ if (isset($_GET["borrar_cir"])){
 }
 
 // Actualiza todos los campos de la tabla cirujanos teniendo como criterio de búsqueda la variable 'id' que viene en el $_GET["actualizar_cir"]
-   
+
 if(isset($_GET["actualizar_cir"])){ 
     $data = json_decode(file_get_contents("php://input"));
     $idcirujanos=(isset($data->idcirujanos))?$data->idcirujanos:$_GET["actualizar_cir"];
@@ -225,8 +226,37 @@ if(isset($_GET["quirofanos"])){
     }
     else{ echo json_encode([["success"=>0]]); }
 }
+// Consulta UN registro de equipo de la tabla quirofanos teniendo como criterio de búsqueda la variable 'idquirofanos' que viene en el $_GET["consultar_quirofano"] 
+   
+if (isset($_GET["consultar_quirofano"])){
+    $sqlQuirofano_ = mysqli_query($conexionBD,"SELECT * FROM quirofanos WHERE idquirofanos=".$_GET["consultar_quirofano"]);
+    if(mysqli_num_rows($sqlQuirofano_) > 0){
+        $Quirofano_ = mysqli_fetch_all($sqlQuirofano_,MYSQLI_ASSOC);
+        echo json_encode($Quirofano_);
+        exit();
+    } else{  echo json_encode(["success"=>0]); }
+}
+
+// Actualiza quirofano 
+if(isset($_GET["actualizar_quirofano"])){ 
+    $data = json_decode(file_get_contents("php://input"));
+    $idquirofanos=(isset($data->idquirofanos))?$data->idquirofanos:$_GET["actualizar_quirofano"];
+    $sala=$data->sala;
+    $tipo=$data->tipo;
+    $sqlQuirofano_ = mysqli_query($conexionBD,"UPDATE quirofanos SET sala='$sala',tipo='$tipo' WHERE idquirofanos='$idquirofanos'");
+    echo json_encode(["success"=>1 ]);
+    exit();   
+}
 
 // Borra un registro de la tabla quirofanos
+if (isset($_GET["borrar_quirofano"])){
+    $sqlQuirofano_   = mysqli_query($conexionBD,"DELETE FROM quirofanos WHERE idquirofanos=".$_GET["borrar_quirofano"]);
+    if($sqlQuirofano_ ){
+        echo json_encode(["success"=>1]);
+        exit();
+    }
+    else{  echo json_encode(["success"=>0]); }
+}
 
 /////////// SECCIÓN  cirugias.
 //Insertar cirugia

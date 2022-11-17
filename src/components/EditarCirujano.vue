@@ -5,19 +5,19 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nombres">Nombres</label>
-                    <input type="text" class="form-control" id="nombres" v-model="cirujano.nombres" required>
+                    <input type="text" class="form-control" id="nombres" name="nombres" v-model="cirujano.nombres" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="apellidos">Apellidos</label>
-                    <input type="text" class="form-control" id="apellidos" v-model="cirujano.apellidos" required>
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" v-model="cirujano.apellidos" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="documento">Documento</label>
-                    <input type="text" class="form-control" id="documento" v-model="cirujano.documento" required>
+                    <input type="text" class="form-control" id="documento" name="documento" v-model="cirujano.documento" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="especialidad">Especialidad</label>
-                    <input type="text" class="form-control" id="especialidad" v-model="cirujano.especialidad" required>
+                    <input type="text" class="form-control" id="especialidad" name="especialidad" v-model="cirujano.especialidad" required>
                 </div>      
                 </div>     
 
@@ -96,7 +96,7 @@ export default {
                 especialidad: this.cirujano.especialidad,
             }
 
-            fetch('http://localhost/proyecto_reto/actualizar_cir=' + this.$route.params.idcirujanos, {
+            fetch('http://localhost/proyecto_reto/?actualizar_cir=' + this.$route.params.idcirujanos, {
                 method: "POST",
                 body: JSON.stringify(datosEnviar)
             })

@@ -78,16 +78,7 @@ export default {
             .catch(console.log)
         },
         
-        borrarCirujano(idcirujanos){
-            fetch('http://http://localhost/proyecto_reto/?borrar_cir='+idcirujanos)
-            .then(respuesta=>respuesta.json())
-            .then((datosRespuesta)=>{
-                console.log(datosRespuesta)
-                window.location.href='ConsultarCirujanos'
-            })
-        },
-
-        btnBorrar: function(idcirujanos){
+            btnBorrar: function(idcirujanos){
             Swal.fire({
                 title:'¿Está seguro de borrar el registro: #'+idcirujanos+"?",
                 type:'warning',
@@ -100,6 +91,14 @@ export default {
                     this.borrarCirujano(idcirujanos);
                     Swal.fire('El registro ha sido borrado')
                 }
+            })
+        },
+         borrarCirujano(idcirujanos){
+            fetch('http://localhost/proyecto_reto/?borrar_cir='+idcirujanos)
+            .then(respuesta=>respuesta.json())
+            .then((datosRespuesta)=>{
+                console.log(datosRespuesta)
+                window.location.href='ConsultarCirujanos'
             })
         }
     }

@@ -1,16 +1,15 @@
 <template>
     <div class="container">
         <h2> Editar quirofano </h2>
-        <form><!-- v-on:submit.prevent="actualizarQuirofano"-->
+        <form v-on:submit.prevent="actualizarQuirofano">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="sala">Sala</label>
-                    <input type="text" class="form-control" id="sala" v-model="quirofano.sala" required>
+                    <input type="text" class="form-control" id="sala" name="sala" v-model="quirofano.sala" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="tipo">Tipo</label>
-                    <select id="tipo" class="form-control" v-model="quirofano.tipo" name="tipo" required>
-                        <option>Seleccione uno:</option>
+                    <select  class="form-control" id="tipo"  name="tipo" v-model="quirofano.tipo" required>
                         <option>Electiva</option>
                         <option>Emergencias</option>
                         <option>Urgencias</option>
@@ -39,7 +38,7 @@ export default {
     },
 
        created:function(){
-        //this.cargarDatos();
+        this.cargarDatos();
         this.consultarQuirofanos();
     },
 
@@ -68,9 +67,9 @@ export default {
             })
             .catch(console.log)
         },
-/*
+
         cargarDatos() {
-            fetch('http://localhost/proyecto_reto/?consultar_cir=' + this.$route.params.idquirofanos)
+            fetch('http://localhost/proyecto_reto/?consultar_quirofano=' + this.$route.params.idquirofanos)
                 .then(respuesta => respuesta.json())
                 .then((datosRespuesta) => {
                     //console.log(datosRespuesta)
@@ -88,7 +87,7 @@ export default {
                 tipo: this.quirofano.tipo,
             }
 
-            fetch('http://localhost/proyecto_reto/actualizar_cir=' + this.$route.params.idquirofanos, {
+            fetch('http://localhost/proyecto_reto/?actualizar_quirofano=' + this.$route.params.idquirofanos, {
                 method: "POST",
                 body: JSON.stringify(datosEnviar)
             })
@@ -97,7 +96,7 @@ export default {
                     console.log(datosRespuesta)
                     window.location.href = '../consultarquirofanos'
                 })
-        }*/
+        }
     }
 }
 </script>

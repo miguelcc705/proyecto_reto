@@ -26,7 +26,7 @@
                             <td> 
                                 <div class="button-group" role="group" aria-label="">
                                 <router-link :to="{path: '/editarquirofano/'+ quirofano.idquirofanos} " class="btn" ><i class="fa fa-pencil"></i></router-link>
-                                <!--button class="btn" @click="btnBorrar(quirofano.idquirofanos)"><i class="fa fa-trash"></i></button-->
+                                <button class="btn" @click="btnBorrar(quirofano.idquirofanos)"><i class="fa fa-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -39,7 +39,7 @@
 
 <script>
 
-//import Swal from'sweetalert2'
+import Swal from'sweetalert2'
 
 export default {
     data(){
@@ -73,19 +73,10 @@ export default {
             })
             .catch(console.log)
         },
-        /*
-        borrarQuirofano(idquirofanos){
-            fetch('http://http://localhost/proyecto_reto/?borrar_cir='+idquirofanos)
-            .then(respuesta=>respuesta.json())
-            .then((datosRespuesta)=>{
-                console.log(datosRespuesta)
-                window.location.href='consultarquirofanos'
-            })
-        },
 
         btnBorrar: function(idquirofanos){
             Swal.fire({
-                title:'¿Está seguro de borrar el registro: #'+idquirofanos+"?",
+                title:'¿Está seguro de borrar el quirofano '+idquirofanos+"?",
                 type:'warning',
                 showCancelButton: true,
                 confirmButtonColor:'#d33',
@@ -97,7 +88,15 @@ export default {
                     Swal.fire('El registro ha sido borrado')
                 }
             })
-        }*/
+        },
+        borrarQuirofano(idquirofanos){
+            fetch('http://localhost/proyecto_reto/?borrar_quirofano='+idquirofanos)
+            .then(respuesta=>respuesta.json())
+            .then((datosRespuesta)=>{
+                console.log(datosRespuesta)
+                window.location.href='consultarquirofanos'
+            })
+        }
     }
 }
 </script>
