@@ -60,23 +60,6 @@ const options = reactive({
 
 
 <template>
-    <nav class="navbar navbar-expand-lg" style="background-color: #FEFEFE;">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <button type="button" style="background-color: #020E27;" class="btn btn-light dropdown-toggle"
-                        data-toggle="dropdown" aria-expanded="false">
-                        <a class="text" style="color:#FEFEFE">Menu</a>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Ingreso información</a>
-                        <a class="dropdown-item" href="#">Calendario</a>
-                        <a class="dropdown-item" href="#">Indicadores</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
     <br>
     <div>
         <FullCalendar v-bind:options="options" @dateClick="opendateClick" />
@@ -270,7 +253,7 @@ export default {
                 body: JSON.stringify(datosEnviar)
             }).then(respuesta => respuesta.json())
             console.log(datosEnviar);
-            window.location.href = 'index_calendario'
+            window.location.href = '/'
 
             
 

@@ -1,8 +1,22 @@
 <template>
   <nav class="navbar navbar-expand navbar-light bg-light ">
     <div class="nav navbar-nav">
-        <router-link to="/inicioSesion">{{val2}}</router-link>
-        <a href ="" v-on:click="cerrarSesion">{{val}}</a> 
+      <li class="nav-item dropdown">
+        <button type="button" style="background-color: #020E27;" class="btn btn-light dropdown-toggle"
+            data-toggle="dropdown" aria-expanded="false">
+            <a class="text" style="color:#FEFEFE">Menu</a>
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="/">Programación Cirugias</a>
+            <a class="dropdown-item" href="ConsultarCirujanos">Cirujanos</a>
+            <a class="dropdown-item" href="Consultarquirofanos">Quirófanos</a>
+            <a class="dropdown-item" href="consultarPacientes">Pacientes</a>
+            <a class="dropdown-item" href="#">Equipos</a>
+            <a class="dropdown-item" href="#">Indicadores</a>
+        </div>
+      </li>
+      <router-link to="/inicioSesion">{{val2}}</router-link>
+      <a href ="" v-on:click="cerrarSesion">{{val}}</a> 
     </div>
   </nav>
 
@@ -31,7 +45,7 @@ export default {
     methods: {
         cerrarSesion() {
             localStorage.clear()
-            window.location.hred='/'
+            window.location.hred='inicioSesion'
         }
     }
 }
