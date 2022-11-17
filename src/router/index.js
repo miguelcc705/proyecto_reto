@@ -10,6 +10,10 @@ import Consultarquirofanos from '../components/ConsultarQuirofano.vue'
 import Crearquirofano from '../components/CrearQuirofano.vue'
 import Editarquirofano from '../components/EditarQuirofano.vue'
 
+import ConsultarPaciente from '../components/ConsultarPaciente.vue'
+import CrearPaciente from '../components/CrearPaciente.vue'
+import EditarPaciente from '../components/EditarPaciente.vue'
+
 import Index_calendario from '../components/Index_calendario.vue'
 
 const routes = [
@@ -54,10 +58,26 @@ const routes = [
     component: Editarquirofano
   },
   {
+    path: '/consultarPacientes',
+    name: 'ConsultarPaciente',
+    component: ConsultarPaciente
+  },
+  {
+    path: '/crearpaciente',
+    name: 'CrearPaciente',
+    component: CrearPaciente
+  },
+  {
+    path: '/editarpaciente/:idpacientes',
+    name: 'EditarPaciente',
+    component: EditarPaciente
+  },
+  {
     path: '/index_calendario',
     name: 'Index_calendario',
     component: Index_calendario
   },
+
 
   {
     path: '/about',

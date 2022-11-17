@@ -52,7 +52,7 @@ if(isset($_GET["pacientes"])){
 // Borra un registro de la tabla pacientes Teniendo como criterio de búsqueda la variable 'id' que viene en el $_GET["borrar_pac"] 
    
 if (isset($_GET["borrar_pac"])){
-    $sqlPaciente_  = mysqli_query($conexionBD,"DELETE FROM pacientes WHERE id=".$_GET["borrar_pac"]);
+    $sqlPaciente_  = mysqli_query($conexionBD,"DELETE FROM pacientes WHERE idpacientes=".$_GET["borrar_pac"]);
     if($sqlPaciente_ ){
         echo json_encode(["success"=>1]);
         exit();
@@ -64,21 +64,21 @@ if (isset($_GET["borrar_pac"])){
    
 if(isset($_GET["actualizar_pac"])){ 
     $data = json_decode(file_get_contents("php://input"));
-    $id=(isset($data->id))?$data->id:$_GET["actualizar_pac"];
+    $idpacientes=(isset($data->idpacientes))?$data->idpacientes:$_GET["actualizar_pac"];
     $nombres=$data->nombres;
     $apellidos=$data->apellidos;
     $documento=$data->documento;
     $eps=$data->eps;
     $edad=$data->edad;
     $sexo=$data->sexo;
-    $sqlPaciente_ = mysqli_query($conexionBD,"UPDATE pacientes SET nombres='$nombres',apellidos='$apellidos',documento='$documento',eps='$eps',edad='$edad',sexo='$sexo' WHERE id='$id'");
+    $sqlPaciente_ = mysqli_query($conexionBD,"UPDATE pacientes SET nombres='$nombres',apellidos='$apellidos',documento='$documento',eps='$eps',edad='$edad',sexo='$sexo' WHERE idpacientes='$idpacientes'");
     echo json_encode(["success"=>1 ]);
     exit();   
 }
 // Consulta UN registro de paciente de la tabla pacientes teniendo como criterio de búsqueda la variable 'id' que viene en el $_GET["consultar_pac"] 
    
 if (isset($_GET["consultar_pac"])){
-    $sqlPaciente_ = mysqli_query($conexionBD,"SELECT * FROM pacientes WHERE id=".$_GET["consultar_pac"]);
+    $sqlPaciente_ = mysqli_query($conexionBD,"SELECT * FROM pacientes WHERE idpacientes=".$_GET["consultar_pac"]);
     if(mysqli_num_rows($sqlPaciente_) > 0){
         $Paciente_ = mysqli_fetch_all($sqlPaciente_,MYSQLI_ASSOC);
         echo json_encode($Paciente_);
@@ -126,12 +126,12 @@ if (isset($_GET["borrar_cir"])){
    
 if(isset($_GET["actualizar_cir"])){ 
     $data = json_decode(file_get_contents("php://input"));
-    $id=(isset($data->id))?$data->id:$_GET["actualizar_cir"];
+    $idcirujanos=(isset($data->idcirujanos))?$data->idcirujanos:$_GET["actualizar_cir"];
     $nombres=$data->nombres;
     $apellidos=$data->apellidos;
     $documento=$data->documento;
     $especialidad=$data->especialidad;
-    $sqlCirujano_ = mysqli_query($conexionBD,"UPDATE cirujanos SET nombres='$nombres',apellidos='$apellidos',documento='$documento',especialidad='$especialidad' WHERE idcirujanos='$id'");
+    $sqlCirujano_ = mysqli_query($conexionBD,"UPDATE cirujanos SET nombres='$nombres',apellidos='$apellidos',documento='$documento',especialidad='$especialidad' WHERE idcirujanos='$idcirujanos'");
     echo json_encode(["success"=>1 ]);
     exit();   
 }
@@ -187,12 +187,12 @@ if (isset($_GET["borrar_eq"])){
    
 if(isset($_GET["actualizar_eq"])){ 
     $data = json_decode(file_get_contents("php://input"));
-    $id=(isset($data->id))?$data->id:$_GET["actualizar_eq"];
+    $idequipos=(isset($data->idequipos))?$data->idequipos:$_GET["actualizar_eq"];
     $nombre=$data->nombre;
     $modelo=$data->modelo;
     $codserial=$data->codserial;
     $cantidad=$data->cantidad;
-    $sqlEquipo_ = mysqli_query($conexionBD,"UPDATE equipos SET nombre='$nombre',modelo='$modelo',codserial='$codserial',cantidad='$cantidad' WHERE idequipos='$id'");
+    $sqlEquipo_ = mysqli_query($conexionBD,"UPDATE equipos SET nombre='$nombre',modelo='$modelo',codserial='$codserial',cantidad='$cantidad' WHERE idequipos='$idequipos'");
     echo json_encode(["success"=>1 ]);
     exit();   
 }
@@ -282,7 +282,7 @@ if (isset($_GET["borrar_cirugia"])){
    
 if(isset($_GET["actualizar_cirugia"])){ 
     $data = json_decode(file_get_contents("php://input"));
-    $id=(isset($data->id))?$data->id:$_GET["actualizar_cirugia"];
+    $idcirugias=(isset($data->idcirugias))?$data->idcirugias:$_GET["actualizar_cirugia"];
     $nombre=$data->nombre;
     $fecha=$data->fecha;
     $horaInicio=$data->horaInicio;
@@ -300,7 +300,7 @@ if(isset($_GET["actualizar_cirugia"])){
     $sqlCirugia_ = mysqli_query($conexionBD,"UPDATE cirugias SET nombre='$nombre',fecha='$fecha',horaInicio='$horaInicio',horaFinal='$horaFinal',
                     horaInicioReal='$horaInicioReal',horaFinalReal='$horaFinalReal',duracionEstimada='$duracionEstimada',duracionReal='$duracionReal',
                     detalles='$detalles',cancelacion='$cancelacion',motivoCancelacion='$motivoCancelacion',idquirofanos='$idquirofanos',
-                    idpacientes='$idpacientes',idcirujanos='$idcirujanos', WHERE idcirugias='$id'");
+                    idpacientes='$idpacientes',idcirujanos='$idcirujanos', WHERE idcirugias='$idcirugias'");
     echo json_encode(["success"=>1 ]);
     exit();   
 }
