@@ -1,5 +1,4 @@
 <script setup>
-
 import { ref, reactive } from 'vue'
 import '@fullcalendar/core/vdom'
 import FullCalendar from '@fullcalendar/vue3'
@@ -9,11 +8,7 @@ import listPlugin from '@fullcalendar/list'
 import interactionPlugin from '@fullcalendar/interaction'
 import 'jquery'
 import $ from 'jquery'
-
-
 const id = ref(0)
-
-
 const options = reactive({
     plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
     initialView: 'dayGridMonth',
@@ -26,11 +21,8 @@ const options = reactive({
     editable: true,
     selectable: true,
     weekends: true,
-
-
     select: (arg) => {
         id.value = id.value + 1
-
         const cal = arg.view.calendar
         cal.unselect()
         cal.addEvent({
@@ -41,21 +33,15 @@ const options = reactive({
             allDay: true
         })
     },
-
     dateClick: function (clickInfo) {
         console.log(clickInfo);
         window.$('#evento').modal('show');
-
-
-
     },
-
     eventClick: (arg) => {
         console.log(arg.event.title)
         $("#evento").modal("show");
     }
 })
-
 </script>
 
 
@@ -166,7 +152,6 @@ const options = reactive({
 </template>
 
 <script>
-
 export default {
     data() {
         if (localStorage.getItem('user_token')) {
@@ -187,7 +172,6 @@ export default {
         this.consultarEquipos();
         this.consultarQuirofanos();
     },
-
     methods: {
         consultarCirujanos(){
             fetch('http://localhost/proyecto_reto/?cirujanos=1') 
@@ -254,9 +238,7 @@ export default {
             }).then(respuesta => respuesta.json())
             console.log(datosEnviar);
             window.location.href = '/'
-
             
-
         }
     }
 }
