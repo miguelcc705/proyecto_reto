@@ -4,7 +4,7 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                 <h2>Listado de equipos</h2>
-                <router-link class="btn btn-primary" :to="{name:'CrearEquipo'}"><i class="fa fa-square-plus"></i> Agregar equipo</router-link>
+                <router-link class="btn btn-primary" :to="{name:'CrearEquipo'}"><i class="fa fa-user-plus"></i> Agregar equipo</router-link>
                 </div>
                 
             </div>
