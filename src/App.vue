@@ -11,7 +11,7 @@
             <a class="dropdown-item" href="ConsultarCirujanos">Cirujanos</a>
             <a class="dropdown-item" href="Consultarquirofanos">Quirófanos</a>
             <a class="dropdown-item" href="consultarPacientes">Pacientes</a>
-            <a class="dropdown-item" href="ConsultarEquipo">Equipos</a>
+            <a class="dropdown-item" href="consultarequipo">Equipos</a>
             <a class="dropdown-item" href="#">Indicadores</a>
         </div>
       </li>
