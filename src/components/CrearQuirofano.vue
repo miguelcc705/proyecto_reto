@@ -25,9 +25,16 @@
 
 export default {
     data() {
-        return {
-            quirofano: {} 
+        if(localStorage.getItem('user_token')){
+            return {
+                quirofano: {} 
+            }
+        }else{
+            window.location.href='inicioSesion'
         }
+        // return {
+        //     quirofano: {} 
+        // }
     },
     
     methods: {

@@ -37,36 +37,36 @@ export default {
         }
     },
 
-       created:function(){
-        this.cargarDatos();
-        this.consultarQuirofanos();
-    },
+    //    created:function(){
+    //     this.cargarDatos();
+    //     this.consultarQuirofanos();
+    // },
 
-    /*created:function(){
+    created:function(){
         if(localStorage.getItem('user_token')){
             this.cargarDatos();
-            this.consultarCirujanos();
+            //this.consultarCirujanos();
         }else{
             window.location.href='inicioSesion'
         }
         
     },
-*/
+
 
     methods: {
 
-        consultarQuirofanos(){
-            fetch('http://localhost/proyecto_reto/?quirofanos=1') 
-            .then(respuesta=>respuesta.json())
-            .then((datosRespuesta)=>{
-                //console.log(datosRespuesta)
-                this.quirofanos=[]
-                if(typeof datosRespuesta[0].success=='undefined'){
-                    this.quirofanos = datosRespuesta;
-                }
-            })
-            .catch(console.log)
-        },
+        // consultarQuirofanos(){
+        //     fetch('http://localhost/proyecto_reto/?quirofanos=1') 
+        //     .then(respuesta=>respuesta.json())
+        //     .then((datosRespuesta)=>{
+        //         //console.log(datosRespuesta)
+        //         this.quirofanos=[]
+        //         if(typeof datosRespuesta[0].success=='undefined'){
+        //             this.quirofanos = datosRespuesta;
+        //         }
+        //     })
+        //     .catch(console.log)
+        // },
 
         cargarDatos() {
             fetch('http://localhost/proyecto_reto/?consultar_quirofano=' + this.$route.params.idquirofanos)

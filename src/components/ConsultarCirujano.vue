@@ -53,16 +53,16 @@ export default {
         
     },
 
-   /*created:function(){
+    created:function(){
         if(localStorage.getItem('user_token')){
-            this.consultarCirujanos();
+            this.ConsultarCirujanos();
         }else{
             window.location.href='inicioSesion'
         }
-    },*/
-    created:function(){
-        this.ConsultarCirujanos();
     },
+    // created:function(){
+    //     this.ConsultarCirujanos();
+    // },
 
     methods:{
         ConsultarCirujanos(){
@@ -78,7 +78,7 @@ export default {
             .catch(console.log)
         },
         
-            btnBorrar: function(idcirujanos){
+        btnBorrar: function(idcirujanos){
             Swal.fire({
                 title:'¿Está seguro de borrar el registro: #'+idcirujanos+"?",
                 type:'warning',
@@ -93,7 +93,7 @@ export default {
                 }
             })
         },
-         borrarCirujano(idcirujanos){
+        borrarCirujano(idcirujanos){
             fetch('http://localhost/proyecto_reto/?borrar_cir='+idcirujanos)
             .then(respuesta=>respuesta.json())
             .then((datosRespuesta)=>{
