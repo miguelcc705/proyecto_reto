@@ -44,37 +44,24 @@ export default {
         }
     },
 
-       created:function(){
-        this.cargarDatos();
-        this.consultarCirujanos();
-    },
+    //    created:function(){
+    //     this.cargarDatos();
+    //     this.consultarCirujanos();
+    // },
 
-    /*created:function(){
+    created:function(){
         if(localStorage.getItem('user_token')){
             this.cargarDatos();
-            this.consultarCirujanos();
         }else{
             window.location.href='inicioSesion'
         }
         
     },
-*/
+
 
     methods: {
 
-        consultarCirujanos(){
-            fetch('http://localhost/proyecto_reto/?cirujanos=1') 
-            .then(respuesta=>respuesta.json())
-            .then((datosRespuesta)=>{
-                //console.log(datosRespuesta)
-                this.cirujanos=[]
-                if(typeof datosRespuesta[0].success=='undefined'){
-                    this.cirujanos = datosRespuesta;
-                }
-            })
-            .catch(console.log)
-        },
-
+        
         cargarDatos() {
             fetch('http://localhost/proyecto_reto/?consultar_cir=' + this.$route.params.idcirujanos)
                 .then(respuesta => respuesta.json())

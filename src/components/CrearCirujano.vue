@@ -29,9 +29,16 @@
 
 export default {
     data() {
-        return {
-            cirujano: {} 
+        if(localStorage.getItem('user_token')){
+            return {
+                cirujano: {} 
+            }
+        }else{
+            window.location.href='inicioSesion'
         }
+        // return {
+        //     cirujano: {} 
+        // }
     },
     
     methods: {

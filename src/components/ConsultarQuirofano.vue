@@ -49,16 +49,16 @@ export default {
         
     },
 
-   /*created:function(){
+    created:function(){
         if(localStorage.getItem('user_token')){
-            this.consultarCirujanos();
+            this.Consultarquirofanos();
         }else{
             window.location.href='inicioSesion'
         }
-    },*/
-    created:function(){
-        this.Consultarquirofanos();
     },
+    // created:function(){
+    //     this.Consultarquirofanos();
+    // },
 
     methods:{
         Consultarquirofanos(){
