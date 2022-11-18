@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import InicioSesion from '../components/InicioSesion.vue'
-// import HomeView from '../views/HomeView.vue'
+//import HomeView from '../views/HomeView.vue'
 
 import ConsultarCirujanos from '../components/ConsultarCirujano.vue'
 import CrearCirujano from '../components/CrearCirujano.vue'
@@ -19,6 +19,8 @@ import ConsultarEquipo from '../components/ConsultarEquipo.vue'
 import EditarEquipo from '../components/EditarEquipo.vue'
 
 import Index_calendario from '../components/Index_calendario.vue'
+
+import verIndicadores from '../components/verIndicadores.vue'
 
 const routes = [
   {
@@ -101,7 +103,11 @@ const routes = [
     name: 'Index_calendario',
     component: Index_calendario
   },
-
+  {
+    path: '/verindicadores',
+    name: 'verIndicadores',
+    component: verIndicadores
+  },
 
   {
     path: '/about',
