@@ -277,7 +277,7 @@ if(isset($_GET["insertar_cirugia"])){
     $idpacientes=$data->idpacientes;
     $idcirujanos=$data->idcirujanos;
                 
-    $sqlCirujano_ = mysqli_query($conexionBD,"INSERT INTO cirugias(nombre,fecha,horaInicio,horaFinal,horaInicioReal,horaFinalReal,duracionEstimada,duracionReal,detalles,cancelacion,motivoCancelacion,idquirofanos,idpacientes,idcirujanos)
+    $sqlCirugia_ = mysqli_query($conexionBD,"INSERT INTO cirugias(nombre,fecha,horaInicio,horaFinal,horaInicioReal,horaFinalReal,duracionEstimada,duracionReal,detalles,cancelacion,motivoCancelacion,idquirofanos,idpacientes,idcirujanos)
     VALUES('$nombre','$fecha','$horaInicio','$horaFinal','$horaInicioReal','$horaFinalReal','$duracionEstimada','$duracionReal','$detalles','$cancelacion','$motivoCancelacion','$idquirofanos','$idpacientes','$idcirujanos') ");
     echo json_encode(["success"=>1]);
     exit();
@@ -287,7 +287,7 @@ if(isset($_GET["insertar_cirugia"])){
 if(isset($_GET["cirugias"])){
     $sqlCirugia_  = mysqli_query($conexionBD,"SELECT * FROM cirugias");
     if(mysqli_num_rows($sqlCirugia_ ) > 0){
-        $Cirugia_  = mysqli_fetch_all($sqlCirujano_ ,MYSQLI_ASSOC);
+        $Cirugia_  = mysqli_fetch_all($sqlCirugia_ ,MYSQLI_ASSOC);
         echo json_encode($Cirugia_ );
     }
     else{ echo json_encode([["success"=>0]]); }

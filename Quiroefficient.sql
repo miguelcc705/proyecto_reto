@@ -148,21 +148,60 @@ INSERT INTO `users` (`id`, `token`, `passwd`, `name`,`email`) VALUES
 (3, 'usuario2', 'usuario2', 'Usuario 2','usuario2@gmail.com');
 
 INSERT INTO `cirujanos` (`idcirujanos`, `nombres`, `apellidos`, `documento`,`especialidad`) VALUES
-(1, 'Cirujano1', 'C1', '1111111','Ginecología'),
-(2, 'Cirujano2', 'C2', '2222222','Cardiolgoía');
+(1, 'Andrea', 'Gomez Gomez', '1037985214','Ginecología'),
+(2, 'Maria Alejandra', 'Torres Fuentes', '1037416214','Cardiología'),
+(3, 'Juan Pablo', 'Pino Lopez', '1037416214','Neurología');
 
 INSERT INTO `equipos` (`idequipos`, `nombre`,`cantidad`) VALUES
-(1, 'Tijeras',5),
-(2, 'Tijeras',7);
+(1, 'Kit Ortopedia',5),
+(2, 'Kit Quirofano 2',7);
 
 
 INSERT INTO `pacientes` (`idpacientes`, `nombres`, `apellidos`, `documento`,`eps`,`edad`,`sexo`) VALUES
 (1, 'Pedro Pablo', 'Pérez Perea','1037976019','Sura',27,'Masculino'),
-(2, 'Jorge Juan', 'Jiménez Jaramillo','1234567890','Sura',75,'Masculino');
+(2, 'Jorge Juan', 'Jiménez Jaramillo','70021803','Sura',75,'Masculino'),
+(3, 'Marta Cecilia', 'Arango Lopez','70698351','Savia',82,'Femenino'),
+(4, 'Lucia', 'Aguirre Londoño','1037862387','Savia',35,'Femenino'),
+(5, 'Eduar Julia', 'Castaño Giraldo','21658935','Sura',75,'Masculino');
 
 INSERT INTO `quirofanos` (`idquirofanos`, `sala`, `tipo`) VALUES
-(1, 'Quirofano1', 'Electiva'),
-(2, 'Quirofano2', 'Urgencia');
+(1, 'Quirofano_01', 'Electiva'),
+(2, 'Quirofano_02', 'Urgencia'),
+(3, 'Quirofano_03', 'Emergencia');
+
+
+INSERT INTO `cirugias` (`idcirugias`, `nombre`, `fecha`, `horaInicio`, `horaFinal`, `horaInicioReal`, `horaFinalReal`, `duracionEstimada`,`duracionReal`, `detalles`, `cancelacion`,`motivoCancelacion`,`idquirofanos`,`idpacientes`,`idcirujanos`) VALUES
+(1, 'Prueba1', '2022-11-05','08:15:00','11:00:00','08:25:00','10:52:00','02:45:00','02:27:00','general',0,'No Aplica',1,1,1),
+(2, 'Prueba2', '2022-11-05','11:15:00','15:00:00','11:15:00','15:10:00','03:45:00','03:55:00','general',0,'No Aplica',1,2,1),
+(3, 'Prueba3', '2022-11-05','15:15:00','19:00:00','15:30:00','20:00:00','03:45:00','04:30:00','general',0,'No Aplica',1,2,2),
+(4, 'Prueba4', '2022-11-05','19:15:00','22:30:00','20:30:00','23:45:00','03:15:00','03:15:00','general',0,'No Aplica',1,3,1),
+
+(5, 'Prueba5', '2022-11-05','08:00:00','11:00:00','08:25:00','10:55:00','03:00:00','02:30:00','general',0,'No Aplica',2,1,3),
+(6, 'Prueba6', '2022-11-05','11:15:00','15:00:00','11:15:00','15:10:00','03:45:00','03:55:00','general',0,'No Aplica',2,2,2),
+(7, 'Prueba7', '2022-11-05','15:15:00','19:00:00','15:30:00','20:00:00','03:45:00','04:30:00','general',0,'No Aplica',2,3,1),
+(8, 'Prueba8', '2022-11-05','19:15:00','22:30:00','20:30:00','23:45:00','03:15:00','03:15:00','general',0,'No Aplica',2,1,1),
+
+
+(9, 'Prueba9', '2022-11-06','04:00:00','06:30:00','04:10:00','06:30:00','02:30:00','02:20:00','general',0,'No Aplica',1,1,1),
+(10, 'Prueba10', '2022-11-06','06:45:00','08:30:00','00:00:00','00:00:00','01:45:00','00:00:00','general',1,'Mala coagulacion',1,2,3),
+(11, 'Prueba11', '2022-11-06','08:50:00','11:00:00','07:00:00','09:20:00','02:10:00','02:20:00','general',0,'No Aplica',1,2,2),
+(12, 'Prueba12', '2022-11-06','11:15:00','17:15:00','10:00:00','16:00:00','06:00:00','06:00:00','general',0,'No Aplica',1,3,1),
+
+(13, 'Prueba13', '2022-11-06','08:15:00','11:00:00','08:25:00','10:52:00','02:45:00','02:27:00','general',0,'No Aplica',2,1,2),
+(14, 'Prueba14', '2022-11-06','11:15:00','15:00:00','11:15:00','15:10:00','03:45:00','03:55:00','general',0,'No Aplica',2,3,3),
+(15, 'Prueba15', '2022-11-06','15:15:00','19:00:00','00:00:00','00:00:00','00:00:00','00:00:00','general',1,'Falta de insumos',2,1,1),
+(16, 'Prueba16', '2022-11-06','19:15:00','22:30:00','16:00:00','20:10:00','03:15:00','04:10:00','general',0,'No Aplica',2,2,2),
+
+
+(17, 'Prueba17', '2022-11-07','04:00:00','08:30:00','04:10:00','08:30:00','04:30:00','04:20:00','general',0,'No Aplica',1,1,1),
+(18, 'Prueba18', '2022-11-07','09:00:00','12:30:00','09:00:00','12:30:00','03:30:00','03:30:00','general',0,'No Aplica',1,2,1),
+(19, 'Prueba19', '2022-11-07','12:50:00','16:00:00','00:00:00','00:00:00','00:00:00','00:00:00','general',1,'Falta de insumos',1,3,1),
+(20, 'Prueba20', '2022-11-07','16:20:00','21:20:00','13:00:00','18:00:00','05:00:00','05:00:00','general',0,'No Aplica',1,2,2),
+
+(21, 'Prueba21', '2022-11-07','05:00:00','11:00:00','05:10:00','11:10:00','06:00:00','06:00:00','general',0,'No Aplica',2,2,2),
+(22, 'Prueba22', '2022-11-07','11:15:00','15:00:00','11:30:00','15:30:00','03:45:00','04:00:00','general',0,'No Aplica',2,3,3),
+(23, 'Prueba23', '2022-11-07','15:15:00','19:00:00','00:00:00','00:00:00','00:00:00','00:00:00','general',1,'Falta de insumos',2,1,2),
+(24, 'Prueba24', '2022-11-07','19:15:00','22:30:00','16:00:00','20:10:00','03:15:00','04:10:00','general',0,'No Aplica',2,1,1);
 
 
 
