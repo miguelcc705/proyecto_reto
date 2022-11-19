@@ -19,7 +19,6 @@ import ConsultarEquipo from '../components/ConsultarEquipo.vue'
 import EditarEquipo from '../components/EditarEquipo.vue'
 
 import Index_calendario from '../components/Index_calendario.vue'
-
 import verIndicadores from '../components/verIndicadores.vue'
 
 const routes = [

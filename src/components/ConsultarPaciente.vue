@@ -1,4 +1,8 @@
 <template>
+    <nav class="breadcrumb">
+        <a class="breadcrumb-item" href="/">Calendario</a>
+        <span class="breadcrumb-item active"> Pacientes</span>
+    </nav>
     <div class="container">
         <br>
         <div class="card">

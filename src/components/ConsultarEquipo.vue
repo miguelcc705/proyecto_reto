@@ -1,10 +1,14 @@
 <template>
+    <nav class="breadcrumb">
+        <a class="breadcrumb-item" href="/">Calendario</a>
+        <span class="breadcrumb-item active"> Equipos</span>
+    </nav>
     <div class="container">
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                 <h2>Listado de equipos</h2>
-                <router-link class="btn btn-primary" :to="{name:'CrearEquipo'}"><i class="fa fa-user-plus"></i> Agregar equipo</router-link>
+                <router-link class="btn btn-primary" :to="{name:'CrearEquipo'}"> Agregar equipo</router-link>
                 </div>
                 
             </div>

@@ -27,7 +27,7 @@ const options = reactive({
         cal.unselect()
         cal.addEvent({
             id: `${id.value}`,
-            title: `New event ${id.value}`,
+            title: `Cirugía ${id.value}`,
             start: arg.start,
             end: arg.end,
             allDay: true
@@ -35,11 +35,14 @@ const options = reactive({
     },
     dateClick: function (clickInfo) {
         console.log(clickInfo);
+        // $('#evento').modal('show');
         window.$('#evento').modal('show');
     },
     eventClick: (arg) => {
         console.log(arg.event.title)
-        $("#evento").modal("show");
+        $('#evento').modal('show');
+        // window.$('#evento').modal('show');
+        
     }
 })
 </script>
@@ -49,6 +52,7 @@ const options = reactive({
     <br>
     <div>
         <FullCalendar v-bind:options="options" @dateClick="opendateClick" />
+        <FullCalendar v-bind:options="options" @eventClick="opendateClick" />
     </div>
 
     <!-- CREAR CIRUGIA -->
@@ -120,13 +124,10 @@ const options = reactive({
                         <div class="container-fluid">
                             <h6>Equipos e instrumentos</h6>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <select class="form-control" name="idequipos" id="idequipos" v-model="cirugia.idequipos">
                                         <option v-for="equipo in equipos" :value="equipo.idequipos" :key="equipo.idequipos">{{equipo.nombre}}</option>
                                     </select>
-                                </div>
-                                <div class="col-md-6 ml-6">
-                                    <button class="btn btn-primary">Kit faltante</button>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +149,6 @@ const options = reactive({
         </div>
     </div>
     <!-- end CREAR CIRUGIA -->
-
 </template>
 
 <script>

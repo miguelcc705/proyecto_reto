@@ -1,4 +1,9 @@
 <template>
+    <nav class="breadcrumb">
+        <a class="breadcrumb-item" href="/">Calendario</a>
+        <a class="breadcrumb-item" href="Consultarquirofanos">Quirófanos</a>
+        <span class="breadcrumb-item active">Editar quirófano</span>
+    </nav>
     <div class="container">
         <h2> Editar quirofano </h2>
         <form v-on:submit.prevent="actualizarQuirofano">

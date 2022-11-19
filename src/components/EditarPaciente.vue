@@ -1,4 +1,9 @@
 <template>
+    <nav class="breadcrumb">
+        <a class="breadcrumb-item" href="/">Calendario</a>
+        <a class="breadcrumb-item" href="consultarPacientes">Pacientes</a>
+        <span class="breadcrumb-item active">Editar paciente</span>
+    </nav>
     <div class="container">
         <div class="px-5 py-5 px-md-5 text-center text-lg-start">
             <div class="card">
@@ -49,7 +54,7 @@
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                             </div>
                             <div class="btn-group mr-2">
-                            <a href="/consultarPacientes" class="btn btn-secondary">Cancelar</a> 
+                            <a href="/consultarPacientes" class="btn btn-dark">Cancelar</a> 
                             </div>
                         </div>
                     </form>

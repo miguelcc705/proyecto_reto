@@ -1,10 +1,11 @@
 <template>
   <nav class="navbar navbar-expand navbar-light bg-light ">
     <div class="nav navbar-nav">
-      <li class="nav-item dropdown">
-        <button type="button" style="background-color: #020E27;" class="btn btn-light dropdown-toggle"
+      <div class="d-flex justify-content-between">
+      <!-- <li class="nav-item dropdown"> -->
+        <button type="button" style="background-color: #ffff;" class="btn btn-light dropdown-toggle"
             data-toggle="dropdown" aria-expanded="false">
-            <a class="text" style="color:#FEFEFE">Menu</a>
+            <i class="fa fa-bars"></i>
         </button>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="/">Programación Cirugias</a>
@@ -12,11 +13,12 @@
             <a class="dropdown-item" href="Consultarquirofanos">Quirófanos</a>
             <a class="dropdown-item" href="consultarPacientes">Pacientes</a>
             <a class="dropdown-item" href="consultarequipo">Equipos</a>
-            <a class="dropdown-item" href="#">Indicadores</a>
+            <a class="dropdown-item" href="verindicadores">Indicadores</a>
         </div>
-      </li>
+      <!-- </li> -->
       <router-link to="/inicioSesion">{{val2}}</router-link>
-      <a href ="" v-on:click="cerrarSesion">{{val}}</a> 
+      <a href ="/" v-on:click="cerrarSesion">{{val}}</a> 
+      </div>
     </div>
   </nav>
 
